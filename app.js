@@ -21,6 +21,7 @@ function modelLoaded() {
     console.log('pix2pix model loaded');
     // pix2pix transfer
     transfer();
+    $('#seg').addClass('hidden');
 }
 // lstm
 function modelReady() {
@@ -40,8 +41,9 @@ function modelReady() {
                 // create button element for closing iframe
                 $('<button id="close" onclick="closeEl();">xxHRRRMANxx</button>').appendTo('#app');
                 // hide loader
-                $('#loader', window.parent.document).fadeOut();
-                $('#seg').addClass('hidden');
+                if ($('#caption').text().length > 1) {
+                    $('#loader', window.parent.document).fadeOut();
+                }
             }
         });
 }
