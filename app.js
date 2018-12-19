@@ -22,6 +22,8 @@ function modelLoaded() {
     // pix2pix transfer
     transfer();
     $('#seg').addClass('hidden');
+    $('#caption').text(refinedRes[0] + '.').css('padding', '20px');
+
 }
 // lstm
 function modelReady() {
@@ -41,9 +43,7 @@ function modelReady() {
                 // create button element for closing iframe
                 $('<button id="close" onclick="closeEl();">xxHRRRMANxx</button>').appendTo('#app');
                 // hide loader
-                if ($('#caption').text().length > 1) {
-                    $('#loader', window.parent.document).fadeOut();
-                }
+                $('#loader', window.parent.document).fadeOut();
             }
         });
 }
