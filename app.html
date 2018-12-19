@@ -1,0 +1,93 @@
+<!--
+  Copyright (c) 2018 ml5
+
+  This software is released under the MIT License.
+  https://opensource.org/licenses/MIT
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HUMANSOFNOWHERE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js" type="text/javascript"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #title {
+            position: absolute;
+            top: 7%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+
+        .hidden {
+            position: absolute;
+            top: 0;
+            left: -9999%;
+            width: 256px;
+            height: 256px;
+            visibility: hidden;
+        }
+
+        #app {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+        }
+
+        #caption {
+            width: 472px;
+            font-family: Courier New;
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            text-align: justify;
+            background: white;
+            margin: 0;
+        }
+
+        #close {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 2%;
+            font-size: 16px;
+        }
+
+        #ch {
+            position: absolute;
+            top: 10%;
+            left: 11%;
+            font-size: 1.2rem;
+        }
+
+        #ch a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">#HUMANSOFNOWHERE</h1>
+    <p id="ch"><a href="http://www.instagram.com/__humansofnw__" target="_blank">&nbspinstagram&nbsp</a>
+        <a href="http://www.instagram.com/__humansofnw__" target="_blank">&nbspsource&nbsp</a></p>
+    <div id="app">
+        <img id="output" src="">
+        <p id="caption"></p>
+    </div>
+    <img src="" alt="" id="seg">
+</body>
+<script src="app.js"></script>
+
+</html>

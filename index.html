@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HUMANSOFNOWHERE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/person-segmentation@0.0.4"></script>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("images/bg.jpg");
+        }
+
+        #title {
+            position: absolute;
+            top: 7%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        #output1 {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #transferBtn {
+            -moz-box-shadow: inset 0px 1px 0px 0px #fff6af;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #fff6af;
+            box-shadow: inset 0px 1px 0px 0px #fff6af;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+            background: -moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background: -webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background: -o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background: -ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23', GradientType=0);
+            background-color: #ffec64;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #ffaa22;
+            display: inline-block;
+            cursor: pointer;
+            color: #333333;
+            font-family: Courier New;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #ffee66;
+            letter-spacing: 1px;
+
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #transferBtn:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+            background: -moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background: -webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background: -o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background: -ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64', GradientType=0);
+            background-color: #ffab23;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        #loader {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: #333;
+            z-index: 999;
+        }
+
+        #loader>img,
+        #loader>p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #loader>p {
+            font-size: 1.2rem;
+            color: rgba(0, 102, 255, 255);
+            top: 60%;
+        }
+
+        #ch {
+            position: absolute;
+            top: 10%;
+            left: 11%;
+            font-size: 1.2rem;
+        }
+
+        #ch a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">#HUMANSOFNOWHERE</h1>
+    <p id="ch"><a href="http://www.instagram.com/__humansofnw__" target="_blank">&nbspinstagram&nbsp</a>
+        <a href="http://www.instagram.com/__humansofnw__" target="_blank">&nbspsource&nbsp</a></p>
+
+    <video id='thevideo' playsinline controls="true" autoplay></video>
+    <canvas id="output1" width="256" height="256"></canvas>
+    <canvas id="output2" width="256" height="256"></canvas>
+
+    <a href="#" id="transferBtn">찰칵</a>
+
+    <iframe id="overlay" src="" frameborder="0"></iframe>
+
+    <div id="loader"><img src="images/loader.gif" alt="">
+        <p>Generating HOOOman...</p>
+    </div>
+</body>
+<script src="util.js"></script>
+
+</html>
