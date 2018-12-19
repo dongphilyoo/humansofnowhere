@@ -2,10 +2,9 @@ let pix2pix, lstm;
 
 // get saved image from local storage
 $(function () {
-    let dataURL = parent.document.getElementById('output2').toDataURL("image/png");
-    let imgData = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    let dataImage = localStorage.getItem('imgData');
     let segImg = document.getElementById('seg');
-    segImg.src = "data:image/png;base64," + imgData;
+    segImg.src = "data:image/png;base64," + dataImage;
 });
 
 // p5.js canvas setup
@@ -20,11 +19,6 @@ function setup() {
 // pix2pix
 function modelLoaded() {
     console.log('pix2pix model loaded');
-    // pix2pix transfer
-    transfer();
-    // hide loader
-    $('#loader', window.parent.document).fadeOut();
-    $('#seg').addClass('hidden');
 }
 // lstm
 function modelReady() {
@@ -43,6 +37,11 @@ function modelReady() {
                 $('#caption').text(refinedRes[0] + '.').css('padding', '20px');
                 // create button element for closing iframe
                 $('<button id="close" onclick="closeEl();">xxHRRRMANxx</button>').appendTo('#app');
+                // pix2pix transfer
+                transfer();
+                // hide loader
+                $('#loader', window.parent.document).fadeOut();
+                $('#seg').addClass('hidden');
             }
         });
 }
