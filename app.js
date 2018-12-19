@@ -22,8 +22,6 @@ function modelLoaded() {
     // pix2pix transfer
     transfer();
     $('#seg').addClass('hidden');
-    $('#caption').text(refinedRes[0] + '.').css('padding', '20px');
-
 }
 // lstm
 function modelReady() {
