@@ -42,11 +42,11 @@ function modelReady() {
                 $('#caption').text(refinedRes[0] + '.').css('padding', '20px');
                 // create button element for closing iframe
                 $('<button id="close" onclick="closeEl();">xxHRRRMANxx</button>').appendTo('#app');
-                // pix2pix transfer
-                transfer();
-                // hide loader
-                $('#loader', window.parent.document).fadeOut();
-                $('#seg').addClass('hidden');
+//                // pix2pix transfer
+//                transfer();
+//                // hide loader
+//                $('#loader', window.parent.document).fadeOut();
+//                $('#seg').addClass('hidden');
             }
         });
 }
