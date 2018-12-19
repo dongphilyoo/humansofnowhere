@@ -7,7 +7,7 @@ $('#transferBtn').click(function () {
     // loader
     $('#loader').fadeIn();
     // save canvas image to local storage
-    localDown();
+    //    localDown();
     // set iframe
     $('#overlay').css({
         "position": "absolute",
@@ -118,8 +118,8 @@ async function runModel() {
 }
 
 // temporarily save canvas image to local storage for future uses
-function localDown() {
-    let dataURL = document.getElementById('output2').toDataURL("image/png");
-    let imgData = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-    localStorage.setItem("imgData", imgData);
-}
+//function localDown() {
+//    let dataURL = document.getElementById('output2').toDataURL("image/png");
+//    let imgData = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+//    localStorage.setItem("imgData", imgData);
+//}

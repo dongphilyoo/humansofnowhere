@@ -2,9 +2,10 @@ let pix2pix, lstm;
 
 // get saved image from local storage
 $(function () {
-    let dataImage = localStorage.getItem('imgData');
+    let dataURL = parent.document.getElementById('output2').toDataURL("image/png");
+    let imgData = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
     let segImg = document.getElementById('seg');
-    segImg.src = "data:image/png;base64," + dataImage;
+    segImg.src = "data:image/png;base64," + imgData;
 });
 
 // p5.js canvas setup
