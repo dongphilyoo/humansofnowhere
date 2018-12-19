@@ -20,8 +20,27 @@ function setup() {
 function modelLoaded() {
     console.log('pix2pix model loaded');
     // pix2pix transfer
-    transfer();
-    $('#seg').addClass('hidden');
+    // Select canvas DOM element
+    const canvasElement = document.getElementById('seg');
+    // Apply pix2pix transformation
+    pix2pix.transfer(canvasElement, function (err, result) {
+        if (err) {
+            console.log(err);
+        }
+        if (result && result.src) {
+            // Create an image based result
+            document.getElementById('output').src = result.src;
+            document.getElementById('output').style.width = "512px";
+            $('body').css({
+                'background-image': 'url("./images/bg_distorted.png")',
+                'background-repeat': 'no-repeat',
+                'background-size': 'cover'
+            });
+            $('#seg').addClass('hidden');
+
+        }
+    });
+    //    transfer();
 }
 // lstm
 function modelReady() {
@@ -47,26 +66,26 @@ function modelReady() {
 }
 
 // pix2pix transfer function
-function transfer() {
-    // Select canvas DOM element
-    const canvasElement = document.getElementById('seg');
-    // Apply pix2pix transformation
-    pix2pix.transfer(canvasElement, function (err, result) {
-        if (err) {
-            console.log(err);
-        }
-        if (result && result.src) {
-            // Create an image based result
-            document.getElementById('output').src = result.src;
-            document.getElementById('output').style.width = "512px";
-            $('body').css({
-                'background-image': 'url("./images/bg_distorted.png")',
-                'background-repeat': 'no-repeat',
-                'background-size': 'cover'
-            });
-        }
-    });
-}
+//function transfer() {
+//    // Select canvas DOM element
+//    const canvasElement = document.getElementById('seg');
+//    // Apply pix2pix transformation
+//    pix2pix.transfer(canvasElement, function (err, result) {
+//        if (err) {
+//            console.log(err);
+//        }
+//        if (result && result.src) {
+//            // Create an image based result
+//            document.getElementById('output').src = result.src;
+//            document.getElementById('output').style.width = "512px";
+//            $('body').css({
+//                'background-image': 'url("./images/bg_distorted.png")',
+//                'background-repeat': 'no-repeat',
+//                'background-size': 'cover'
+//            });
+//        }
+//    });
+//}
 
 // close iframe
 function closeEl() {
